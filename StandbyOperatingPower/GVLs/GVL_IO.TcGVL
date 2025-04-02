@@ -3,7 +3,7 @@
   <GVL Name="GVL_IO" Id="{7d284c7f-20a0-4e3e-8fbe-e0adf73714e3}">
     <Declaration><![CDATA[//{attribute 'qualified_only'}   //enable this if you want to have qualified global variables, ex: GVL_IO.BoolRelayArray[]
 VAR_GLOBAL
-	BoolRelayArray  AT %Q* :ARRAY[1..21] OF BOOL;
+	BoolRelayArray  AT %Q* :ARRAY[1..22] OF BOOL;
 	//BoolRelayArray AT %QX0.0 :ARRAY[1..21] OF BOOL;
 END_VAR]]></Declaration>
   </GVL>
