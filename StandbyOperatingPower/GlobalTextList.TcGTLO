@@ -145,6 +145,11 @@
               <v n="TextDefault">"Toggle All Relays"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
+            <o>
+              <v n="TextID">"139"</v>
+              <v n="TextDefault">"Toggle All With Delay"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
           </l>
           <l n="Languages" t="ArrayList" />
           <v n="GuidInit">{19bfe708-4b4e-400a-80c4-ee0a7f9658bd}</v>

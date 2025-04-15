@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="ToggleRelaysWithDelay" Id="{672ec801-d5d4-4ea2-8f3a-4853371ff3c7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ToggleRelaysWithDelay
+VAR_INPUT
+    StartDelayToggle : BOOL;           // Trigger from HMI
+    DelayTime : TIME := T#200ms;       // Time delay between each relay
+END_VAR
+
+VAR_IN_OUT
+    BoolRelayArray : ARRAY[1..22] OF BOOL; // Relay control array
+END_VAR
+
+VAR
+    Timer : TON;               // Delay timer
+    RelayIndex : INT := 1;     // Current relay being toggled
+    Active : BOOL := FALSE;    // Whether the sequence is running
+    StartLatch : BOOL := FALSE;// Edge-detection to avoid retriggering
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Rising edge detection to start the toggle sequence only once
+IF StartDelayToggle AND NOT StartLatch THEN
+    Active := TRUE;
+    RelayIndex := 1;
+    StartLatch := TRUE;
+    Timer(IN := FALSE); // Ensure timer resets
+END_IF
+
+// Reset latch when button is released
+IF NOT StartDelayToggle THEN
+    StartLatch := FALSE;
+END_IF
+
+// Toggle relays one-by-one with delay
+IF Active THEN
+    Timer(IN := TRUE, PT := DelayTime);
+
+    IF Timer.Q THEN
+        IF RelayIndex <= 22 THEN
+            BoolRelayArray[RelayIndex] := TRUE;
+            RelayIndex := RelayIndex + 1;
+            Timer(IN := FALSE); // Reset timer for next relay
+        ELSE
+            Active := FALSE; // Done with all relays
+            Timer(IN := FALSE);
+        END_IF
+    END_IF
+ELSE
+    Timer(IN := FALSE);
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="ToggleRelaysWithDelay">
+      <LineId Id="142" Count="31" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

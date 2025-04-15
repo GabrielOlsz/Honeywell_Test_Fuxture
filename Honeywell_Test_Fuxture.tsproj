@@ -64,7 +64,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EE492BA0-8934-4142-99A5-8B5717E44AC5}" Name="StandbyOperatingPower" PrjFilePath="StandbyOperatingPower\StandbyOperatingPower.plcproj" TmcFilePath="StandbyOperatingPower\StandbyOperatingPower.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{C6502F93-1D0E-DB16-FDAD-81FFA06B9016}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{16256854-4AAF-5C29-99FB-F6483AB3808F}">
 					<Name>StandbyOperatingPower Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -2290,10 +2290,54 @@
 				</Box>
 				<EtherCAT DcSyncMode="3"/>
 			</Device>
+			<Device Id="1" DevType="112" AmsPort="28673" AmsNetId="172.18.239.142.2.1" RemoteName="Device 1 (EtherCAT Automation Protocol)">
+				<Name>Device 1 (EtherCAT Automation Protocol)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet 3 (TwinCAT-Intel PCI Ethernet Adapter (Gig</DeviceDesc>
+						<DeviceName>\DEVICE\{8C8EFA54-9E00-408E-908C-9BCA44C66056}</DeviceName>
+						<DeviceData>0001056a0089</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="1" AddrType="1" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Ethernet DeviceDesc="Ethernet 3 (TwinCAT-Intel PCI Ethernet Adapter (Gig"/>
+				<Eap EapDeviceGuid="{9758DEA3-3C7E-4A3E-A5EA-68063DC215F5}"/>
+			</Device>
+			<Device Id="2" DevType="112" AmsPort="28674" AmsNetId="172.18.239.142.3.1" RemoteName="Device 2 (EtherCAT Automation Protocol)">
+				<Name>Device 2 (EtherCAT Automation Protocol)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet (TwinCAT-Intel PCI Ethernet Adapter (Gigab</DeviceDesc>
+						<DeviceName>\DEVICE\{A48D0CC5-E83D-450B-8E28-215294E59CD4}</DeviceName>
+						<DeviceData>0001056a0088</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="2" AddrType="1" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Ethernet DeviceDesc="Ethernet (TwinCAT-Intel PCI Ethernet Adapter (Gigab"/>
+				<Eap EapDeviceGuid="{36301292-81EB-4AD0-8B15-668A82B7BA5B}"/>
+			</Device>
+			<Device Id="3" DevType="112" AmsPort="28675" AmsNetId="172.18.239.142.4.1" RemoteName="Device 3 (EtherCAT Automation Protocol)">
+				<Name>Device 3 (EtherCAT Automation Protocol)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet 4 (TwinCAT-Intel PCI Ethernet Adapter (Gig</DeviceDesc>
+						<DeviceName>\DEVICE\{6384F84F-017C-47AC-97AB-20EB67926EC3}</DeviceName>
+						<DeviceData>0001056a0086</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="3" AddrType="1" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Ethernet DeviceDesc="Ethernet 4 (TwinCAT-Intel PCI Ethernet Adapter (Gig"/>
+				<Eap EapDeviceGuid="{E1807273-316A-4A68-865D-69538885178E}"/>
+			</Device>
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-2001-0850-0020-500840000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^StandbyOperatingPower^StandbyOperatingPower Instance">
 			<OwnerB Name="TIID^Device 5 (EtherCAT)^Term 1 (EK1100)^Term 3 (EL2809)">
 				<Link VarA="PlcTask Outputs^GVL_IO.BoolRelayArray[10]" VarB="Channel 10^Output"/>

@@ -6,10 +6,19 @@ VAR
     ToggleAllRelaysButton : BOOL;  // HMI button to trigger toggling
     i : INT; // Loop variable
 	LastToggleState: BOOL;
+	ToggleRelaysWithDelayButton : BOOL;                      // HMI Button
+    DelayedToggle : ToggleRelaysWithDelay;             // FB Instance
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// Toggle All Relays Function
+      <ST><![CDATA[DelayedToggle(
+    StartDelayToggle := ToggleRelaysWithDelayButton,
+    DelayTime := T#200ms,
+    BoolRelayArray := BoolRelayArray
+);
+
+
+// Toggle All Relays Function
 IF ToggleAllRelaysButton AND NOT LastToggleState THEN //If button is pressed, turn all relays on
     // Set all relays to OFF first
     FOR i := 1 TO 22 DO
@@ -32,6 +41,8 @@ END_IF
 LastToggleState := ToggleAllRelaysButton; // Update the previous state of the toggle button]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="48" Count="4" />
+      <LineId Id="40" Count="1" />
       <LineId Id="12" Count="19" />
       <LineId Id="2" Count="0" />
     </LineIds>
