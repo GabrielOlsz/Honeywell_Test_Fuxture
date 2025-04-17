@@ -3,47 +3,35 @@
   <POU Name="MAIN" Id="{63904485-10c2-4552-8766-9ea490077c86}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-    ToggleAllRelaysButton : BOOL;  // HMI button to trigger toggling
-    i : INT; // Loop variable
-	LastToggleState: BOOL;
-	ToggleRelaysWithDelayButton : BOOL;                      // HMI Button
-    DelayedToggle : ToggleRelaysWithDelay;             // FB Instance
-END_VAR
-]]></Declaration>
+    ToggleAllRelaysFB : FB_ToggleRelays;
+    ToggleAllRelaysButton : BOOL;              // HMI toggle button
+    LastToggleState: BOOL;
+    ToggleRelaysWithDelayButton : BOOL;        // HMI Button
+    DelayedToggle : ToggleRelaysWithDelay;     // FB Instance
+    Delay : TIME;                              // TIME type, gets converted from INT
+    DelayMsInput : INT;                        // User input in ms from HMI
+END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[DelayedToggle(
+      <ST><![CDATA[
+
+
+// Call function block for delayed toggle
+DelayedToggle(
     StartDelayToggle := ToggleRelaysWithDelayButton,
-    DelayTime := T#200ms,
+    DelayMsInput := DelayMsInput,              // Directly pass the INT to FB
     BoolRelayArray := BoolRelayArray
 );
 
-
-// Toggle All Relays Function
-IF ToggleAllRelaysButton AND NOT LastToggleState THEN //If button is pressed, turn all relays on
-    // Set all relays to OFF first
-    FOR i := 1 TO 22 DO
-        BoolRelayArray[i] := FALSE;
-    END_FOR
-	
-    // Set all relays ON
-    FOR i := 1 TO 22 DO
-        BoolRelayArray[i] := TRUE;
-    END_FOR
-END_IF
-
-// Turn all relays OFF when button returns to off state
-IF NOT ToggleAllRelaysButton AND LastToggleState THEN  //If button gets untoggled/unpressed, turn all relays off
-    FOR i := 1 TO 22 DO
-        BoolRelayArray[i] := FALSE;
-    END_FOR
-END_IF
-
-LastToggleState := ToggleAllRelaysButton; // Update the previous state of the toggle button]]></ST>
+// Call function block for instant toggle
+ToggleAllRelaysFB(
+    ToggleButton := ToggleAllRelaysButton,
+    RelayArray := BoolRelayArray
+);]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="48" Count="4" />
-      <LineId Id="40" Count="1" />
-      <LineId Id="12" Count="19" />
+      <LineId Id="73" Count="2" />
+      <LineId Id="88" Count="5" />
+      <LineId Id="82" Count="4" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

@@ -64,7 +64,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EE492BA0-8934-4142-99A5-8B5717E44AC5}" Name="StandbyOperatingPower" PrjFilePath="StandbyOperatingPower\StandbyOperatingPower.plcproj" TmcFilePath="StandbyOperatingPower\StandbyOperatingPower.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{16256854-4AAF-5C29-99FB-F6483AB3808F}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{4EBA4358-A43F-2B4B-C324-1528084ABF7F}">
 					<Name>StandbyOperatingPower Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">
@@ -104,7 +104,7 @@
 				<Image Id="4" AddrType="9" ImageType="3">
 					<Name>Image</Name>
 				</Image>
-				<Box Id="1" BoxType="9099">
+				<Box Id="1" Disabled="true" BoxType="9099">
 					<Name>Term 1 (EK1100)</Name>
 					<ImageId>1000</ImageId>
 					<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x00ffffff"/>
