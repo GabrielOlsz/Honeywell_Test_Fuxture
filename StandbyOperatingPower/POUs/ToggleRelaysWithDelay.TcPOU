@@ -4,8 +4,7 @@
     <Declaration><![CDATA[FUNCTION_BLOCK ToggleRelaysWithDelay
 VAR_INPUT
     StartDelayToggle : BOOL;           // Button from HMI
-//    DelayTime : TIME := T#200MS;       // Delay between each relay
-	DelayMsInput : INT; 			   // From HMI, in milliseconds
+    DelayMsInput : INT;                // Delay in ms from HMI
 END_VAR
 
 VAR_IN_OUT
@@ -13,55 +12,72 @@ VAR_IN_OUT
 END_VAR
 
 VAR
-    Timer : TON;                // Delay timer
-    RelayIndex : INT := 1;      // Current relay being toggled
-    Active : BOOL := FALSE;     // Whether the sequence is running
-    StartLatch : BOOL := FALSE; // Edge-detection to avoid retriggering
-	DelayTime : TIME; 			// Internal TIME-converted value
-END_VAR]]></Declaration>
+    Timer : TON;                       // Delay timer
+    RelayIndex : INT := 1;             // Current relay index
+    DelayTime : TIME;                  // Converted delay
+    State : INT := 0;                  // 0: idle, 1: toggling on, 2: toggling off
+    Latch : BOOL := FALSE;             // For edge detection
+    MaxRelaysToggled : INT := 0;       // Keep track of how many relays were toggled ON
+END_VAR
+]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-DelayTime := INT_TO_TIME(DelayMsInput);  //Convert int delay value from HIMI to type TIME
+// Convert Delay input
+DelayTime := INT_TO_TIME(DelayMsInput); //* 1ms;
 
-//Start the toggle sequence only once
-IF StartDelayToggle AND NOT StartLatch THEN
-    Active := TRUE;
-    RelayIndex := 1;	//Relay index tracker
-    StartLatch := TRUE;
-    Timer(IN := FALSE); //Make sure timer resets
+// Detect rising/falling edge
+IF StartDelayToggle AND NOT Latch THEN
+    // Start toggle ON sequence
+    State := 1;
+    RelayIndex := 1;
+    MaxRelaysToggled := 0;
+    Timer(IN := FALSE);
+ELSIF NOT StartDelayToggle AND Latch THEN
+    // If toggle was ON but now turned OFF
+    IF State = 1 THEN
+        // Was toggling ON – cancel and reverse off relays
+        State := 2;
+        RelayIndex := RelayIndex - 1;
+        IF RelayIndex < 1 THEN
+            RelayIndex := 1;
+        END_IF
+    ELSIF State = 0 THEN
+        // If already finished, now start toggling OFF
+        State := 2;
+        RelayIndex := 22;
+    END_IF
 END_IF
+Latch := StartDelayToggle;
 
-// Reset latch when button is released
-IF NOT StartDelayToggle THEN
-    StartLatch := FALSE;
-END_IF
-
-
-// Toggle relays one-by-one with delay
-IF Active THEN
+// Relay ON Sequence
+IF State = 1 THEN
     Timer(IN := TRUE, PT := DelayTime);
-
     IF Timer.Q THEN
-        IF RelayIndex <= 22 THEN
-            BoolRelayArray[RelayIndex] := TRUE;
-            RelayIndex := RelayIndex + 1;	//Increment the index
-            Timer(IN := FALSE); // Reset timer for next relay
-        ELSE
-            Active := FALSE; // Done with all relays
-            Timer(IN := FALSE);
+        BoolRelayArray[RelayIndex] := TRUE;
+        MaxRelaysToggled := RelayIndex;
+        RelayIndex := RelayIndex + 1;
+        Timer(IN := FALSE); // Reset timer
+        IF RelayIndex > 22 THEN
+            State := 0; // Done
         END_IF
     END_IF
-ELSE
-    Timer(IN := FALSE); //Reset timer
+
+// Relay OFF Sequence (reverse)
+ELSIF State = 2 THEN
+    Timer(IN := TRUE, PT := DelayTime);
+    IF Timer.Q THEN
+        BoolRelayArray[RelayIndex] := FALSE;
+        RelayIndex := RelayIndex - 1;
+        Timer(IN := FALSE); // Reset timer
+        IF RelayIndex < 1 THEN
+            State := 0; // Done
+        END_IF
+    END_IF
 END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="ToggleRelaysWithDelay">
-      <LineId Id="142" Count="1" />
-      <LineId Id="203" Count="0" />
-      <LineId Id="144" Count="11" />
-      <LineId Id="199" Count="0" />
-      <LineId Id="156" Count="17" />
+      <LineId Id="222" Count="52" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

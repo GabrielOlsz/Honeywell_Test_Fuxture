@@ -64,7 +64,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EE492BA0-8934-4142-99A5-8B5717E44AC5}" Name="StandbyOperatingPower" PrjFilePath="StandbyOperatingPower\StandbyOperatingPower.plcproj" TmcFilePath="StandbyOperatingPower\StandbyOperatingPower.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{4EBA4358-A43F-2B4B-C324-1528084ABF7F}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="StandbyOperatingPower\StandbyOperatingPower.tmc" TmcHash="{19FE734F-4F8D-01F4-F6A9-D5176C86B769}">
 					<Name>StandbyOperatingPower Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="2" AreaNo="1">

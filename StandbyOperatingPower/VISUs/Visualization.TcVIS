@@ -4608,7 +4608,7 @@
                         </o>
                         <o>
                           <v n="Id">1999528970L</v>
-                          <v n="Value">"MAIN.ToggleRelaysWithDelayButton"</v>
+                          <v n="Value">"MAIN.ToggleAllRelaysButton"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -5625,7 +5625,7 @@
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">742</v>
+                      <v n="Value">749</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
@@ -5641,7 +5641,7 @@
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"Delay"</v>
+                      <v n="Value">"Delay (ms)"</v>
                     </o>
                     <o>
                       <v n="Id">3729828405L</v>
@@ -5683,7 +5683,7 @@
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"101"</v>
+                      <v n="Value">"487"</v>
                     </o>
                   </l>
                 </o>
@@ -5789,7 +5789,7 @@
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">841</v>
+                      <v n="Value">866</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
@@ -5797,7 +5797,7 @@
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">112</v>
+                      <v n="Value">93</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
