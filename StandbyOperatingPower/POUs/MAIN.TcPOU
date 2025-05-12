@@ -13,8 +13,6 @@ VAR
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-
-
 // Call function block for delayed toggle
 DelayedToggle(
     StartDelayToggle := ToggleRelaysWithDelayButton,
@@ -29,7 +27,7 @@ ToggleAllRelaysFB(
 );]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="73" Count="2" />
+      <LineId Id="75" Count="0" />
       <LineId Id="88" Count="5" />
       <LineId Id="82" Count="4" />
       <LineId Id="2" Count="0" />

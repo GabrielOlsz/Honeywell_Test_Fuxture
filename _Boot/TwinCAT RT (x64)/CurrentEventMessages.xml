@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<TcEventSources Version="2">
+	<Source>
+		<GUID>{28111931-0002-0000-5230-B61721001300}</GUID>
+		<Name LcId="1031">EL6070-0033 1K. Licence-Key-Klemme, individuelle Lizenzen</Name>
+		<Name LcId="1033">EL6070-0033 1Ch. Licence key terminal, individual licences</Name>
+		<Event>
+			<Id>4736</Id>
+			<Message LcId="1031">File {0} erased successfully</Message>
+			<Message LcId="1033">File {0} erased successfully</Message>
+		</Event>
+		<Event>
+			<Id>17037</Id>
+			<Message LcId="1033">Challenge is not Random</Message>
+		</Event>
+		<Event>
+			<Id>33409</Id>
+			<Message LcId="1033">Ownership failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33410</Id>
+			<Message LcId="1031">Too many Keys founded</Message>
+			<Message LcId="1033">Too many Keys founded</Message>
+		</Event>
+		<Event>
+			<Id>33411</Id>
+			<Message LcId="1031">Key Creation failed: {0,X}</Message>
+			<Message LcId="1033">Key Creation failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33412</Id>
+			<Message LcId="1031">Key loading failed: {0,X}</Message>
+			<Message LcId="1033">Key loading failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33413</Id>
+			<Message LcId="1031">Reading Public Key failed: {0,X}</Message>
+			<Message LcId="1033">Reading Public Key failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33414</Id>
+			<Message LcId="1031">Reading Public EK failed: {0,X}</Message>
+			<Message LcId="1033">Reading Public EK failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33415</Id>
+			<Message LcId="1033">Reading PCR Value failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33416</Id>
+			<Message LcId="1033">Reading Certificate EK failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33417</Id>
+			<Message LcId="1031">Challenge could not be hashed: {0,X}</Message>
+			<Message LcId="1033">Challenge could not be hashed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33418</Id>
+			<Message LcId="1031">Tickstamp Process failed: {0,X}</Message>
+			<Message LcId="1033">Tickstamp Process failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33419</Id>
+			<Message LcId="1031">PCR Process failed: {0,X}</Message>
+			<Message LcId="1033">PCR Process failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33420</Id>
+			<Message LcId="1033">Quote Process failed: {0,X}</Message>
+		</Event>
+		<Event>
+			<Id>33535</Id>
+			<Message LcId="1031">No Boot Mode</Message>
+			<Message LcId="1033">No Boot Mode</Message>
+		</Event>
+		<Event>
+			<Id>34561</Id>
+			<Message LcId="1031">Operatingtime was manipulated</Message>
+			<Message LcId="1033">Operatingtime was manipulated</Message>
+		</Event>
+		<Property>
+			<Name>DisplayTxtId</Name>
+			<Value>true</Value>
+		</Property>
+	</Source>
+	<Source>
+		<GUID>{28111931-0002-0000-5230-730D00001700}</GUID>
+		<Name LcId="1031">EL3443 3K. Leistungsmessung</Name>
+		<Name LcId="1033">EL3443 3Ch. Power Measuring</Name>
+		<Event>
+			<Id>18432</Id>
+			<Message LcId="1031">Guard: Spannung Ch. {0} Warning Level</Message>
+			<Message LcId="1033">Guard: Voltage Ch. {0} warning level</Message>
+		</Event>
+		<Event>
+			<Id>18434</Id>
+			<Message LcId="1031">Guard: Strom Ch. {0} Warning Level</Message>
+			<Message LcId="1033">Guard: Current Ch. {0} warning level</Message>
+		</Event>
+		<Event>
+			<Id>18436</Id>
+			<Message LcId="1031">Guard: Frequenz Warning Level</Message>
+			<Message LcId="1033">Guard: Frequency warning level</Message>
+		</Event>
+		<Event>
+			<Id>18438</Id>
+			<Message LcId="1031">Guard: PQF Warning Level</Message>
+			<Message LcId="1033">Guard: PQF warning level</Message>
+		</Event>
+		<Event>
+			<Id>18440</Id>
+			<Message LcId="1031">Guard: Unsymmetrie Warning Level</Message>
+			<Message LcId="1033">Guard: Unbalance warning level</Message>
+		</Event>
+		<Event>
+			<Id>18442</Id>
+			<Message LcId="1031">Guard: Neutralleiterstrom Warning Level</Message>
+			<Message LcId="1033">Guard: neutral current warning level</Message>
+		</Event>
+		<Event>
+			<Id>18444</Id>
+			<Message LcId="1031">Guard: Wirkleistung Warning Level</Message>
+			<Message LcId="1033">Guard: active power warning level</Message>
+		</Event>
+		<Event>
+			<Id>18446</Id>
+			<Message LcId="1031">Guard: Scheinleistung Warning Level</Message>
+			<Message LcId="1033">Guard: apparent power warning level</Message>
+		</Event>
+		<Event>
+			<Id>18448</Id>
+			<Message LcId="1031">Guard: Blindleistung Warning Level</Message>
+			<Message LcId="1033">Guard: reactive power warning level</Message>
+		</Event>
+		<Event>
+			<Id>18450</Id>
+			<Message LcId="1031">Wirkenergie Überlauf</Message>
+			<Message LcId="1033">Active Energy overflow</Message>
+		</Event>
+		<Event>
+			<Id>18451</Id>
+			<Message LcId="1031">Scheinenergie Überlauf</Message>
+			<Message LcId="1033">Apparent Energy overflow</Message>
+		</Event>
+		<Event>
+			<Id>18452</Id>
+			<Message LcId="1031">Blindenergie Überlauf</Message>
+			<Message LcId="1033">Reactive Energy overflow</Message>
+		</Event>
+		<Event>
+			<Id>33168</Id>
+			<Message LcId="1031">Zu viele Input PDOs ausgewählt</Message>
+			<Message LcId="1033">Too many input PDOs selected</Message>
+		</Event>
+		<Event>
+			<Id>34816</Id>
+			<Message LcId="1031">Guard: Spannung Ch. {0} Error Level</Message>
+			<Message LcId="1033">Guard: Voltage Ch. {0} error level</Message>
+		</Event>
+		<Event>
+			<Id>34818</Id>
+			<Message LcId="1031">Guard: Strom Ch. {0} Error Level</Message>
+			<Message LcId="1033">Guard: Current Ch. {0} error level</Message>
+		</Event>
+		<Event>
+			<Id>34820</Id>
+			<Message LcId="1031">Guard: Frequenz Error Level</Message>
+			<Message LcId="1033">Guard: Frequency error level</Message>
+		</Event>
+		<Event>
+			<Id>34822</Id>
+			<Message LcId="1031">Guard: PQF Error Level</Message>
+			<Message LcId="1033">Guard: PQF error level</Message>
+		</Event>
+		<Event>
+			<Id>34824</Id>
+			<Message LcId="1031">Guard: Unsymmetrie Error Level</Message>
+			<Message LcId="1033">Guard: Unbalance error level</Message>
+		</Event>
+		<Event>
+			<Id>34826</Id>
+			<Message LcId="1031">Guard: Neutralleiterstrom Error Level</Message>
+			<Message LcId="1033">Guard: neutral current error level</Message>
+		</Event>
+		<Event>
+			<Id>34828</Id>
+			<Message LcId="1031">Guard: Wirkleistung Error Level</Message>
+			<Message LcId="1033">Guard: active power error level</Message>
+		</Event>
+		<Event>
+			<Id>34830</Id>
+			<Message LcId="1031">Guard: Scheinleistung Error Level</Message>
+			<Message LcId="1033">Guard: apparent power error level</Message>
+		</Event>
+		<Event>
+			<Id>34832</Id>
+			<Message LcId="1031">Guard: Blindleistung Error Level</Message>
+			<Message LcId="1033">Guard: reactive power error level</Message>
+		</Event>
+		<Property>
+			<Name>DisplayTxtId</Name>
+			<Value>true</Value>
+		</Property>
+	</Source>
+</TcEventSources>
